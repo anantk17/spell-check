@@ -1,10 +1,12 @@
 class Text:
   fileName = ""
+  opf = ""
   words = []
   chk_words = []
   
-  def __init__(self,filename):
+  def __init__(self,filename,outputfilename="ouput.txt"):
     self.fileName = filename
+    self.opf = outputfilename
     self.read()
     
   def read(self):
@@ -20,6 +22,12 @@ class Text:
       self.chk_words.extend(string.split(' '))
   
   def write(self):
-    print self.words
-    print self.chk_words
+    f = open(self.opf,'w')
+    result = ""
+    for words in self.chk_words:
+      if words == '\r\n':
+	result += words
+    else:
+      result+=words+" "
+    f.write(result)
     
