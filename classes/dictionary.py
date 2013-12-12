@@ -1,3 +1,5 @@
+import string
+
 class Dictionary:
   fileName = ""
   words = []
@@ -7,6 +9,7 @@ class Dictionary:
    self.fileName = filename
    self.words = []
    self.hashed_words = []
+   self.read()
      
   def write(self):
     print self.fileName
@@ -20,3 +23,36 @@ class Dictionary:
     
   def dhash(self):
     hashed_words = map(hash, words)
+    
+  def verify(self,t):
+    result = []
+    for word in t:
+      result.append(self.check(word))
+    return result
+  
+  def check(self,w):
+    if w.lower() in self.words:
+      return w
+    elif w.lower()[:-1] in self.words and (w[-1:] in string.punctuation):
+      return w
+    elif w == '\r\n' or (w[:1] in string.punctuation):
+      return w
+    #elif w[:-1] in self.words or (w[:-2] in self.words and w[:-1] in string.punctuation):
+    #  w = w[-1]
+    #  return w
+    else :
+      for word in self.words:
+	if w.lower()[:-1] == word[:-1]:
+	  w = word
+	  return w
+	elif w.lower()[:-2] == word[:-1] and w.lower()[-1:] in string.punctuation :
+	  w = word + w[-1:]
+	  return w
+	
+      return w
+	
+      	
+
+	#else:
+	#  return w
+   
