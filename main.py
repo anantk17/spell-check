@@ -5,9 +5,9 @@ from classes.text import Text
 
 
 outputfile = ""
-if len(sys.argv) == 4 : 
+if len(sys.argv) == 4 : 						#if all arguments are provided
   filedict,filetext,outputfile = sys.argv[1],sys.argv[2],sys.argv[3]
-else:
+else:									#if o/p filename is not provided
   filedict,filetext = sys.argv[1],sys.argv[2]
 
 d = Dictionary(filedict)
