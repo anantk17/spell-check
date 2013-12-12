@@ -13,11 +13,6 @@ class Text:
     file = open(self.fileName,'r+')
     for line in file:
       self.words.append(line)
-    #self.chk_words = map(lambda s : s.split('\r\n'),self.words)
-    #for string in self.words:
-    #  self.chk_words.extend(string.split('\r\n'))
-    #self.words = self.chk_words
-    #self.chk_words = []
     for string in self.words:
       self.chk_words.extend(string.split(' '))
   

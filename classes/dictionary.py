@@ -37,9 +37,6 @@ class Dictionary:
       return w
     elif w == '\r\n' or (w[:1] in string.punctuation):
       return w
-    #elif w[:-1] in self.words or (w[:-2] in self.words and w[:-1] in string.punctuation):
-    #  w = w[-1]
-    #  return w
     else :
       for word in self.words:
 	if w.lower()[:-1] == word[:-1]:
@@ -49,10 +46,4 @@ class Dictionary:
 	  w = word + w[-1:]
 	  return w
 	
-      return w
-	
-      	
-
-	#else:
-	#  return w
-   
+      return ws 
